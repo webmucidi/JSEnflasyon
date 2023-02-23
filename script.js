@@ -1,0 +1,26 @@
+function enflasyonHesapla(){
+    let sepetTutari,oncekiDonem,simdikiDonem,enflasyonOrani,sonuc,yeniTutar;
+    let listeOnceki,listeSimdiki;
+    listeOnceki=document.getElementById("slctOncekiDonem");
+    listeSimdiki=document.getElementById("slctSimdikiDonem");
+    sepetTutari=document.getElementById("txtSepet").value;
+    oncekiDonem=listeOnceki.options[listeOnceki.selectedIndex].text;
+    simdikiDonem=listeSimdiki.options[0].text;
+    if(oncekiDonem==2020){
+        enflasyonOrani=3.5;
+    }
+    else if(oncekiDonem==2021){
+        enflasyonOrani=2.5;
+    }
+    else if(oncekiDonem==2022){
+        enflasyonOrani=1.5;
+    }
+    else{
+        alert("Yıl seçimi alınamadı!");
+    }
+    //console.log(sepetTutari,oncekiDonem,simdikiDonem,enflasyonOrani);
+    sonuc=(sepetTutari*enflasyonOrani)-sepetTutari;
+    yeniTutar=sepetTutari*enflasyonOrani;
+    document.getElementById("mesaj").innerHTML="Enflasyon verilerine göre sepet şu kadar zamlanmıştır: "+sonuc+"<br>"+"Sepet için şu anda ödemeniz gereken tutar: "+yeniTutar;
+
+}

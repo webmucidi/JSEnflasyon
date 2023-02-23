@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>KAR/ZARAR Hesaplama</h2>
+    <form action="">
+        <label for="listeHesapTuru">Hesap türü:</label>
+        <select name="" id="listeHesapTuru">
+            <option value="TL">TL bazında</option>
+            <option value="%">Oransal</option>
+        </select>
+        <label for="txtAlis">Alış fiyatı:</label>
+        <input type="text" name="" id="txtAlis">
+        <label for="txtSatis">Satış fiyatı:</label>
+        <input type="text" name="" id="txtSatis">
+        <input type="button" value="Hesapla" id="btnHesapla" onclick="hesapla()">
+    </form>
+    <h3 id="sonuc"></h3>
+</body>
+<script src="kod.js"></script>
+</html>
