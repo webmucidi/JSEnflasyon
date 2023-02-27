@@ -6,7 +6,7 @@ function yilDoldur(){
     
 
     for(yil;yil>1999;yil--){
-        //console.log(yil);
+        console.log(yil);
         let secenek=document.createElement("option");
         document.getElementById("slctOncekiDonem").options.add(secenek);
         secenek.text=yil;
