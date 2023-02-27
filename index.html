@@ -8,16 +8,14 @@
     <link rel="stylesheet" href="style.css">
     
 </head>
-<body>
+<body onload="yilDoldur()">
     <form action="">
         <label for="txtSepet">Sepet tutarını giriniz:</label>
         <input type="text" id="txtSepet">
         <label for="slctOncekiDonem">Önceki Dönem</label>
-        <select id="slctOncekiDonem">
-            
-            <option value="">2022</option>
-            <option value="">2021</option>
-            <option value="">2020</option>
+        <select id="slctOncekiDonem">  
+            <option value="">Seçiniz</option>
+
         </select>
         <label for="slctSimdikiDonem">Şimdiki Dönem</label>
         <select id="slctSimdikiDonem">
@@ -26,6 +24,7 @@
         <input type="button" value="Hesapla" id="btnHesapla" onclick="enflasyonHesapla()">
     </form>
     <h3 id="mesaj"></h3>
+
 </body>
 <script src="script.js"></script>
 </html>

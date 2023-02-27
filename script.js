@@ -1,3 +1,22 @@
+function yilDoldur(){
+    let tarih,yil;
+    tarih=new Date();
+    
+    yil=tarih.getFullYear();
+    
+
+    for(yil;yil>1999;yil--){
+        //console.log(yil);
+        let secenek=document.createElement("option");
+        document.getElementById("slctOncekiDonem").options.add(secenek);
+        secenek.text=yil;
+        secenek.value=yil;
+    }
+}
+
+
+
+
 function enflasyonHesapla(){
     let sepetTutari,oncekiDonem,simdikiDonem,enflasyonOrani,sonuc,yeniTutar;
     let listeOnceki,listeSimdiki;
