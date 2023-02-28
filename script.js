@@ -1,8 +1,10 @@
 function yilDoldur(){
-    let tarih,yil;
+    let tarih,yil,ay;
     tarih=new Date();
     
     yil=tarih.getFullYear();
+    ay=tarih.getMonth();
+    console.log(ay);
     
 
     for(yil;yil>1999;yil--){
@@ -23,8 +25,8 @@ function enflasyonHesapla(){
     listeOnceki=document.getElementById("slctOncekiDonem");
     listeSimdiki=document.getElementById("slctSimdikiDonem");
     sepetTutari=document.getElementById("txtSepet").value;
-    oncekiDonem=listeOnceki.options[listeOnceki.selectedIndex].text;
-    simdikiDonem=listeSimdiki.options[0].text;
+    oncekiDonem=listeOnceki.options[listeOnceki.selectedIndex].value;
+    simdikiDonem=listeSimdiki.options[0].value;
     if(oncekiDonem==2020){
         enflasyonOrani=3.5;
     }
