@@ -82,11 +82,11 @@ else{
 
     }
     else if(secilenAy<ay){
-        ayFarki=(ay-secilenAy)+12;
+        ayFarki=12-(ay-secilenAy);
         document.getElementById("sonuc2").innerHTML="Kira yenilemenize "+ayFarki+" ay kalmıştır.";
 
     }
-    else if(yilFarki>0 && secilenAy==ay){
+    else if(secilenAy==ay){
         document.getElementById("sonuc2").innerHTML="Kira yenilemeniz BU AY gerçekleşecektir!";
 
     }
