@@ -11,19 +11,21 @@ let mevcutKira,yeniKira;
 let listeYil,listeAy;
 
 //Dizi değişkenleri
-let aylar;
+let aylar=["Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık"];
 
-aylar=["Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık"];
-
+//HTML nesne değişkenleri
 listeAy=document.getElementById("listeAy");
 listeYil=document.getElementById("listeYil");
 
+//Seçilen yıl ve ay değişkenleri
+let secilenAy,secilenYil;
 
-
+//Mevcut tarih üzerinden yıl ve ayı bulma
 tarih=new Date();
 yil=tarih.getFullYear();
 ay=tarih.getMonth();
 
+//Ay ve yıl listelerini doldurma
 function doldur(){
 
     for(yil;yil>1999;yil--){
@@ -43,51 +45,51 @@ function doldur(){
 
 }
 
+//İstenilen sonuçları hesaplama
 function hesapla(){
-    //Kiracılıkta geçen yıl üzerinden zamlı kira miktarını bulma
+
+    //PROBLEM 1: Kiracılıkta geçen yıl üzerinden zamlı kira miktarını bulma
     yil=tarih.getFullYear();
+    secilenYil=listeYil[listeYil.selectedIndex].value;
     mevcutKira=document.getElementById("txtKira").value;
-    yilFarki=yil-listeYil[listeYil.selectedIndex].value;
+    yilFarki=yil-secilenYil;
     
 
-    if(yilFarki==0 && secilenAy<=ay){
+if(yilFarki==0){
 
-    }
-
+    document.getElementById("sonuc1").innerHTML="Mevcut kiranız: "+mevcutKira;   
+    document.getElementById("sonuc2").innerHTML="Kira yenilemeniz bir yılı doldurduktan sonra yapılacaktır!";   
+}
+else{
     if(yilFarki>5){
         yeniKira=mevcutKira*1.50;
     }
     else if(yilFarki<=5){
-        if(yilFarki==0){
-            yeniKira=mevcutKira;
-            document.getElementById("sonuc1").innerHTML="Kira yenilemeniz bir yılı doldurduktan sonra yapılacaktır!";
-        }
-        else{
-            yeniKira=mevcutKira*1.25;
-        }
-        
+        yeniKira=mevcutKira*1.25;
+          
     }
-
 
     document.getElementById("sonuc1").innerHTML="Yeni kiranız: "+yeniKira;
 
-    //Ay farkı üzerinden kira yenilemesine ne kadar kaldığını bulma
+    //PROBLEM 2: Ay farkı üzerinden kira yenilemesine ne kadar kaldığını bulma
     ay=tarih.getMonth();
-    let secilenAy=listeAy[listeAy.selectedIndex].value;
-
+    secilenAy=listeAy[listeAy.selectedIndex].value;
 
 
     if(secilenAy>ay){
         ayFarki=secilenAy-ay;
+        document.getElementById("sonuc2").innerHTML="Kira yenilemenize "+ayFarki+" ay kalmıştır.";
+
     }
-    else if(ay>secilenAy){
+    else if(secilenAy<ay){
         ayFarki=(ay-secilenAy)+12;
+        document.getElementById("sonuc2").innerHTML="Kira yenilemenize "+ayFarki+" ay kalmıştır.";
+
     }
-    else{
+    else if(yilFarki>0 && secilenAy==ay){
         document.getElementById("sonuc2").innerHTML="Kira yenilemeniz BU AY gerçekleşecektir!";
+
     }
 
-    document.getElementById("sonuc2").innerHTML="Kira yenilemenize "+ayFarki+" ay kalmıştır.";
-
-
+}
 }
