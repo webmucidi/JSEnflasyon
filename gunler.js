@@ -34,7 +34,8 @@ function hesapla(){
         bayramGun=21;
 
         if(bayramAy<mevcutAy){
-            alert("EE şimdi nolcek?")
+            ayFarki=12-(mevcutAy-bayramAy);
+            gunFarki=bayramGun-mevcutGun;
         }
         else{
             ayFarki=bayramAy-mevcutAy;
@@ -92,11 +93,17 @@ function hesapla(){
         
     }
     else{
-        bayramAy=1;
-        bayramGun=1;
-        if(bayramAy<mevcutAy){
+        bayramAy=3;
+        bayramGun=2;
+        if(bayramAy<=mevcutAy){
         ayFarki=12-(mevcutAy-bayramAy);
-        gunFarki=bayramGun-mevcutGun;
+            if(bayramGun>mevcutGun){
+                gunFarki=bayramGun-mevcutGun;
+            }
+            else{
+                gunFarki=bayramGun-mevcutGun;
+            }
+        
         }
         else{
         ayFarki=bayramAy-mevcutAy;
